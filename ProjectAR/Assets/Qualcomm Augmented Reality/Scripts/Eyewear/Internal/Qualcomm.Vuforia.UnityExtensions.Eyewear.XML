@@ -1,0 +1,310 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Qualcomm.Vuforia.UnityExtensions.Eyewear</name>
+    </assembly>
+    <members>
+        <member name="T:Vuforia.Eyewear">
+            <summary>
+            Class that provides functionality specific to AR on Eyewear devices.
+            </summary>
+            <remarks>
+            <br/><b>This API is only supported in the %Vuforia SDK for Digital %Eyewear.</b><br/><br/>
+            
+            Digital Eyewear integration provides methods to detect and control an 
+            Eyewear device and to retrieve calibration data needed to correctly
+            register augmentations with the real world.
+            </remarks>
+        </member>
+        <member name="M:Vuforia.Eyewear.IsSupportedDeviceDetected">
+            <summary>
+            Returns true if supported Eyewear hardware is detected, false otherwise.
+            </summary>
+            <remarks>
+            A call should be made to this method before calling other methods in this class.
+            </remarks>
+        </member>
+        <member name="M:Vuforia.Eyewear.IsSeeThru">
+            <summary>
+            Returns true if the Eyewear device detected has a see-through display.
+            </summary>
+        </member>
+        <member name="M:Vuforia.Eyewear.GetScreenOrientation">
+            <summary>
+            Returns the correct screen orientation to use when rendering for the eyewear device.
+            </summary>
+        </member>
+        <member name="M:Vuforia.Eyewear.IsStereoCapable">
+            <summary>
+            Returns true if the Eyewear device has a stereo display, false otherwise.
+            </summary>
+        </member>
+        <member name="M:Vuforia.Eyewear.IsStereoEnabled">
+            <summary>
+            Returns true if the Eyewear device is in stereo mode
+            </summary>
+        </member>
+        <member name="M:Vuforia.Eyewear.IsStereoGLOnly">
+            <summary>
+            Returns true if the Eyewear device stereo mode is only for OpenGL content.
+            </summary>
+            <remarks>
+            Some Eyewear devices don't support stereo for 2D (typically Android widget)
+            content. On these devices 2D content is rendered to each eye automatically
+            without the need for the app to create a split screen view. On such devices
+            this method will return true.
+            </remarks>
+        </member>
+        <member name="M:Vuforia.Eyewear.SetStereo(System.Boolean)">
+            <summary>
+            Switch between 2D (mono) and 3D (stereo) modes on eyewear device.
+            </summary>
+            <param name="enable">set to true to switch to 3D (stereo) mode or false for 2D (mono) mode</param>
+            <returns>true if successful or false if the device doesn't support this operation.</returns>
+        </member>
+        <member name="M:Vuforia.Eyewear.GetDefaultSceneScale">
+            <summary>
+            Returns the default scene scaling for the device.
+            </summary>
+            <remarks>
+            The scene scaling may be used with occluded devices to scale video background
+            and augmentations to be the correct size relative to the users view of the
+            real world.
+            </remarks>
+        </member>
+        <member name="M:Vuforia.Eyewear.getProfileManager">
+            <summary>
+            Get the calibration profile manager.
+            </summary>
+            <remarks>Calibration profiles are only relevant to see-through Eyewear devices.</remarks>
+            <returns>Returns an instance of <see cref="T:Vuforia.InternalEyewearCalibrationProfileManager"/></returns>
+        </member>
+        <member name="M:Vuforia.Eyewear.getCalibrator">
+            <summary>
+            Get the user calibrator.
+            </summary>
+            <returns>Returns an instance of <see cref="T:Vuforia.InternalEyewearCalibrationProfileManager"/></returns>
+        </member>
+        <member name="M:Vuforia.Eyewear.GetProjectionMatrix(Vuforia.Eyewear.EyeID,UnityEngine.ScreenOrientation)">
+            <summary>
+            Get the projection matrix for the specified eye and default calibration profile on see-through devices.
+            </summary>
+            <param name="eyeID">the eye to get the calibrated projection matrix for, one of EYEID_MONOCULAR, EYEID_LEFT or EYEID_RIGHT.</param>
+            <param name="screenOrientation">the current screen orientation.</param>
+        </member>
+        <member name="M:Vuforia.Eyewear.GetProjectionMatrix(Vuforia.Eyewear.EyeID,System.Int32,UnityEngine.ScreenOrientation)">
+            <summary>
+            Get the projection matrix for the specified eye
+            </summary>
+            <param name="eyeID">the eye to get the calibrated projection matrix for, one of EYEID_MONOCULAR, EYEID_LEFT or EYEID_RIGHT.</param>
+            <param name="profileID">the calibration profile to use, a default of the current active profile is set.</param>
+            <param name="screenOrientation">the current screen orientation.</param>
+        </member>
+        <member name="P:Vuforia.Eyewear.Instance">
+            <summary>
+            Returns an instance of an Eyewear (thread safe)
+            </summary>
+        </member>
+        <member name="T:Vuforia.Eyewear.EyeID">
+            <summary>
+            Defines which eye the operation is working on
+            </summary>
+        </member>
+        <member name="F:Vuforia.Eyewear.EyeID.EYEID_MONOCULAR">
+            <summary>Identifier for a monocular (single) eye</summary>
+        </member>
+        <member name="F:Vuforia.Eyewear.EyeID.EYEID_LEFT">
+            <summary>Identifier for the left eye</summary>
+        </member>
+        <member name="F:Vuforia.Eyewear.EyeID.EYEID_RIGHT">
+            <summary> Identifier for the right eye</summary>
+        </member>
+        <member name="T:Vuforia.Eyewear.EyewearCalibrationReading">
+            <summary>Structure for an eyewear calibration reading to be used with EyewearUserCalibration</summary>
+        </member>
+        <member name="F:Vuforia.Eyewear.EyewearCalibrationReading.pose">
+            <summary>Pose matrix from a TrackableResult</summary>
+        </member>
+        <member name="F:Vuforia.Eyewear.EyewearCalibrationReading.scale">
+            <summary>A scale in the range 0.0 - 1.0 that should specify the amount of rendering surface height the calibration shape fills</summary>
+        </member>
+        <member name="F:Vuforia.Eyewear.EyewearCalibrationReading.centerX">
+            <summary>A position in the range -1.0 to 1.0 that specifies the horizontal center of the calibration shape on the rendering surface</summary>
+        </member>
+        <member name="F:Vuforia.Eyewear.EyewearCalibrationReading.centerY">
+            <summary>A position in the range -1.0 to 1.0 that specifies the vertical center of the calibration shape on the rendering surface</summary>
+        </member>
+        <member name="F:Vuforia.Eyewear.EyewearCalibrationReading.unused">
+            <summary>Padding bytes for 64bit compatibility</summary>
+        </member>
+        <member name="T:Vuforia.EyewearCalibrationProfileManager">
+             <summary>
+             Class that provides functionality specific to AR on Eyewear devices.
+             </summary>
+             <remarks>
+             <br/><b>This API is only supported in the %Vuforia SDK for Digital %Eyewear.</b><br/><br/>
+            
+             The EyewearCalibrationProfileManager allows the user to list the number of calibration
+             profiles available on the device and select the active profile to use.
+             </remarks>
+        </member>
+        <member name="M:Vuforia.EyewearCalibrationProfileManager.getMaxCount">
+            <returns>
+            Return the number of profile slots provided.
+            </returns>
+        </member>
+        <member name="M:Vuforia.EyewearCalibrationProfileManager.getUsedCount">
+            <returns>
+            Return the number of user calibration profiles stored.
+            </returns>
+        </member>
+        <member name="M:Vuforia.EyewearCalibrationProfileManager.isProfileUsed(System.Int32)">
+            <param name="profileID">the calibration profile to use, a default of the current active profile is set.</param>
+            <returns>Returns true if the specified profile slot contains data.</returns>
+        </member>
+        <member name="M:Vuforia.EyewearCalibrationProfileManager.getActiveProfile">
+            <summary>
+            Get the ID of the active user calibration profile.
+            </summary>
+            <returns>Return a number between 0 and <see cref="M:Vuforia.EyewearCalibrationProfileManager.getMaxCount"/>.</returns>
+        </member>
+        <member name="M:Vuforia.EyewearCalibrationProfileManager.setActiveProfile(System.Int32)">
+            <summary>
+            Set a calibration profile as active.
+            </summary>
+            <param name="profileID">A number between 1 and <see cref="M:Vuforia.EyewearCalibrationProfileManager.getMaxCount"/>.</param>
+            <returns>Return true if the active profile is changed, false otherwise (e.g. if the specified profile is not valid)</returns>
+        </member>
+        <member name="M:Vuforia.EyewearCalibrationProfileManager.getProjectionMatrix(System.Int32,Vuforia.Eyewear.EyeID)">
+            <summary>
+            Get the projection matrix for the specified profile and eye.
+            </summary>
+            <param name="profileID">A number between 1 and <see cref="M:Vuforia.EyewearCalibrationProfileManager.getMaxCount"/>.</param>
+            <param name="eyeID">the Eye to retrieve the projection matrix for, one of EYEID_MONOCULAR, EYEID_LEFT or EYEID_RIGHT.</param>
+            <returns>Return the stored projection matrix, will contain all 0's if no data is stored for the profile.</returns>
+        </member>
+        <member name="M:Vuforia.EyewearCalibrationProfileManager.setProjectionMatrix(System.Int32,Vuforia.Eyewear.EyeID,UnityEngine.Matrix4x4)">
+            <summary>
+            Store a projection matrix to a calibration profile
+            </summary>
+            <param name="profileID">A number between 1 and <see cref="M:Vuforia.EyewearCalibrationProfileManager.getMaxCount"/>.</param>
+            <param name="eyeID">the Eye to retrieve the projection matrix for, one of EYEID_MONOCULAR, EYEID_LEFT or EYEID_RIGHT.</param>
+            <param name="projectionMatrix">The projection matrix to store</param>
+            <returns>Return true if the new projection matrix was stored successfully, false otherwise.</returns>
+        </member>
+        <member name="M:Vuforia.EyewearCalibrationProfileManager.getProfileName(System.Int32)">
+            <summary>
+            Get the display name associated with a profile
+            </summary>
+            <param name="profileID">A number between 1 and <see cref="M:Vuforia.EyewearCalibrationProfileManager.getMaxCount"/>.</param>
+            <returns>Return a unicode string, if no display name has been provided for the specified profile an empty string will be returned.</returns>
+        </member>
+        <member name="M:Vuforia.EyewearCalibrationProfileManager.setProfileName(System.Int32,System.String)">
+            <summary>
+            Set a display name associated with a profile.
+            </summary>
+            <param name="profileID">A number between 1 and <see cref="M:Vuforia.EyewearCalibrationProfileManager.getMaxCount"/>.</param>
+            <param name="name">A unicode string to use as the display name</param>
+            <returns>Returns true if the display name was successfully set, false otherwise.</returns>
+        </member>
+        <member name="M:Vuforia.EyewearCalibrationProfileManager.clearProfile(System.Int32)">
+            <summary>
+            Delete all stored data for the specified profile.
+            </summary>
+            <param name="profileID">A number between 1 and <see cref="M:Vuforia.EyewearCalibrationProfileManager.getMaxCount"/>.</param>
+            <returns>Returns true if the profile was successfully cleared, false otherwise.</returns>
+        </member>
+        <member name="T:Vuforia.EyewearUserCalibrator">
+             <summary>A class for creating custom user calibration procedures for see-through eyewear</summary>
+             <remarks>
+             <br/><b>This API is only supported in the %Vuforia SDK for Digital %Eyewear.</b><br/><br/>
+            
+             <list type="bullet">
+             <item><description>
+               Users of optical see-through eyewear devices need to perform a calibration
+               to determine how to project an augmentation such that it will appear
+               registered with the real world.  This calibration is both user and
+               device specific.  Vuforia provides a default calibration but to obtain
+               the best possible AR experience the user should calibrate Vuforia for
+               their own eyes and device.
+             </description></item>
+             <item><description>
+               To write your own calibration app you should draw a calibration shape
+               (rectangle) on the display and prompt the user to align the edges of
+               of the calibration shape with a Vuforia image target.  This step should
+               then be repeated with a different size shape.  A minimum of two steps are
+               required for a good result although further steps can be included to get
+               an improved calibration result.
+             </description></item>
+             <item><description>
+               If the eyewear device is a stereo then the calibration needs to be
+               carried out independently on each eye.
+             </description></item>
+             <item><description>
+               Millimeters must be used as the unit of measurement throughout
+               calibration.  The calibration image target used should have its size
+               specified in millimetres when initialising this object.  This size
+               must match the size specified in the dataset for the target and the
+               printed size of the target.
+             </description></item>
+             <item><description>
+               The projection matrix generated by the calibration process includes
+               OpenGL clip planes which will cause augmentations very close or far
+               from the user to be clipped.
+             </description></item>
+             </list>
+             </remarks>
+        </member>
+        <member name="M:Vuforia.EyewearUserCalibrator.init(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>Initialises the eyewear calibrator.</summary>
+            <remarks>
+             - This function must be called before any other members of this class.
+            </remarks>
+            <param name="surfaceWidth">The width of the rendering surface that the calibration is running in</param>
+            <param name="surfaceHeight">The height of the rendering surface that the calibration is running in</param>
+            <param name="targetWidth">The width of the image target being used in millimetres</param>
+            <param name="targetHeight">The height of the image target being used in millimetres</param>
+            <returns>True if initialisation is successful, false otherwise</returns>
+        </member>
+        <member name="M:Vuforia.EyewearUserCalibrator.getMinScaleHint">
+            <summary>Gets a hint of the minimum size a calibration shape should be drawn</summary>
+            <remarks>
+             - The smaller a calibration shape is drawn the further the user needs to
+             stand away from a target during calibration.  The minimum size that
+             can be drawn is device specific and this API provide a hint as to what
+             minimum scale shape is practical.
+            </remarks>
+            <returns>The minimum scale of the shape in the range 0.0 - 1.0</returns>
+        </member>
+        <member name="M:Vuforia.EyewearUserCalibrator.getMaxScaleHint">
+            <summary>Gets a hint of the maximum size a calibration shape should be drawn</summary>
+            <remarks>
+             - Drawing a large calibration shape means the sides of the shape will
+             near to the sides of the display.  Some eyewear devices have
+             distortion towards the edge of the display.  This API provides a hint
+             as to the maximum size a calibration shape should be drawn.
+            </remarks>
+            <returns>The maximum scale of the shape in the range 0.0 - 1.0</returns>
+        </member>
+        <member name="M:Vuforia.EyewearUserCalibrator.isStereoStretched">
+            <summary>Checks whether a device stretches the display to create a stereoscopic effect</summary>
+            <remarks>
+             - When a device enters 3D it may join the displays together to create one
+             big display.  If the resolution of the display appears the same then the
+             display is effectively stretched
+            </remarks>
+            <returns>True if the display is stretched, otherwise false</returns>
+        </member>
+        <member name="M:Vuforia.EyewearUserCalibrator.getProjectionMatrix(Vuforia.Eyewear.EyewearCalibrationReading[],UnityEngine.Matrix4x4)">
+            <summary>Gets a projection matrix calibrated for eyewear</summary>
+            <remarks>
+             - Calculates and returns a calibrated projection matrix.
+             - init must be called before calling this function.
+            </remarks>
+            <param name="readings">An array of calibration readings</param>
+            <param name="numReadings">The number of readings taken, poseReadings and scales must be this length</param>
+            <param name="calibrationResult">Output matrix for the calibrated matrix</param>
+            <returns>True if the call is successful, otherwise false</returns>
+        </member>
+    </members>
+</doc>
