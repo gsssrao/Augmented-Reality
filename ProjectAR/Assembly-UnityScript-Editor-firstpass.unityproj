@@ -47,10 +47,10 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Plugins\Editor\Unzip.js" />
-     <None Include="Assets\Cardboard\Legacy\Resources\SkyboxMesh.shader" />
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
      <None Include="Assets\link.xml" />
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\VertexLitWithZ.shader" />
+     <None Include="Assets\StreamingAssets\QCAR\Testing.xml" />
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\RenderVideoBackground.shader" />
      <None Include="Assets\San Francisco House\readme.txt" />
      <None Include="Assets\StreamingAssets\QCAR\Images.xml" />
@@ -58,14 +58,11 @@
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\VideoBackground.shader" />
      <None Include="Assets\StreamingAssets\QCAR\StonesAndChips.xml" />
      <None Include="Assets\license.txt" />
-     <None Include="Assets\Cardboard\Legacy\Resources\GUIScreen.shader" />
      <None Include="Assets\Editor\QCAR\WebcamProfiles\profiles.xml" />
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\DepthMask.shader" />
      <None Include="Assets\Plugins\Android\AndroidManifest 1.xml" />
      <None Include="Assets\Plugins\Legacy\Android\AndroidManifest.xml" />
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\BrightTexture.shader" />
-     <None Include="Assets\Cardboard\Resources\RadialUndistortionEffect.shader" />
-     <None Include="Assets\Cardboard\Resources\SolidColor.shader" />
      <None Include="Assets\Resources\Vuforia_About.txt" />
      <None Include="Assets\readme_SDK.txt" />
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\Text3D.shader" />
