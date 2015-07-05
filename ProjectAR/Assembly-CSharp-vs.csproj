@@ -46,7 +46,6 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Button1Handler.cs" />
      <Compile Include="Assets\Common\UIFramework\AboutScreenView.cs" />
      <Compile Include="Assets\Common\UIFramework\AppManager.cs" />
      <Compile Include="Assets\Common\UIFramework\ISampleAppUIElement.cs" />
@@ -64,6 +63,8 @@
      <Compile Include="Assets\Common\UIFramework\SampleInitErrorHandler.cs" />
      <Compile Include="Assets\Common\UIFramework\SceneViewManager.cs" />
      <Compile Include="Assets\Common\UIFramework\SplashScreenView.cs" />
+     <Compile Include="Assets\MyScript\Button1Handler.cs" />
+     <Compile Include="Assets\MyScript\MouseTarget.cs" />
      <Compile Include="Assets\Qualcomm Augmented Reality\Scripts\BackgroundPlaneBehaviour.cs" />
      <Compile Include="Assets\Qualcomm Augmented Reality\Scripts\CloudRecoBehaviour.cs" />
      <Compile Include="Assets\Qualcomm Augmented Reality\Scripts\CylinderTargetBehaviour.cs" />
@@ -108,9 +109,7 @@
      <None Include="Assets\Plugins\Android\AndroidManifest.xml" />
      <None Include="Assets\link.xml" />
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\VertexLitWithZ.shader" />
-     <None Include="Assets\StreamingAssets\QCAR\Testing.xml" />
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\RenderVideoBackground.shader" />
-     <None Include="Assets\San Francisco House\readme.txt" />
      <None Include="Assets\StreamingAssets\QCAR\Images.xml" />
      <None Include="Assets\license_3rdpartynotice.txt" />
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\VideoBackground.shader" />
@@ -121,6 +120,7 @@
      <None Include="Assets\Plugins\Android\AndroidManifest 1.xml" />
      <None Include="Assets\Plugins\Legacy\Android\AndroidManifest.xml" />
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\BrightTexture.shader" />
+     <None Include="Assets\StreamingAssets\QCAR\Testing.xml" />
      <None Include="Assets\Resources\Vuforia_About.txt" />
      <None Include="Assets\readme_SDK.txt" />
      <None Include="Assets\Qualcomm Augmented Reality\Shaders\Text3D.shader" />

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
-  <Tracking>
-    <ImageTarget name="1000yen-bill-front" size="30.000000 15.200892" />
-    <ImageTarget name="ind100" size="20.000000 9.244061" />
-    <ImageTarget name="10rs" size="20.000000 9.407338" />
-  </Tracking>
-</QCARConfig>
