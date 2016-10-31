@@ -4,6 +4,6 @@ This is the implementation of the augmented reality aimed at making an app for g
 
 The images of the 3D objects which will be seen on the target images is located in the 3D Images folder.
 
-The app has been made using Unity 5 game engine and Vuphorial SDK.
+The app has been made using Unity 5 game engine and Vuphoria SDK.
 
 
